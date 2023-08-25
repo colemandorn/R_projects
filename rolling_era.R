@@ -1,3 +1,14 @@
+library(baseballr)
+library(tidyverse)
+library(teamcolors)
+
+
+pitcher_ids <- baseballr::fg_pitcher_leaders(2022,2022) %>%
+  select(playerid, Name)
+
+player_df <- baseballr::pitcher_game_logs_fg(8700,2022)
+
+rolling_era_func <- function(id) {
 
 df <- df %>% group_by(PlayerName) %>% mutate(season_outs = cumsum(total_outs),
                                              ER = cumsum(ER),
