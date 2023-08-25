@@ -1,10 +1,10 @@
 library(tidyverse)
 
-
+cubs_pitching <- read_csv('cubs_pitching.csv')
 cubs_batting <- read_csv('chc_batting_8-24.csv')
 #data from baseball reference
 
-View(cubs_batting)
+View(cubs_pitching)
 
 head(cubs_batting)
 
@@ -31,6 +31,17 @@ cubs_batting <- cubs_batting %>%
 # WOBA - OBP
 cubs_batting <- cubs_batting %>%
   mutate(`WOBA+-` = WOBA - OBP)
+
+# Pythagorean exp. wins & plot
+total_runs_against <- sum(cubs_pitching$R)
+total_runs <- sum(cubs_batting$R)
+winshare <-  ((total_runs^2)/((total_runs^2)+(total_runs_against^2)))
+xwins <- winshare * 162
+xlosses <- 162 - xwins
+winshare_df <- tibble(xwins,xlosses)
+pythag_exp_wins_plot <- ggplot(data = winshare_df, aes(x=xlosses,y=xwins)) +
+  geom_point() +
+  theme_classic()
 
 
 
