@@ -2,7 +2,7 @@ library(tidyverse)
 
 
 cubs_batting <- read_csv('chc_batting_8-24.csv')
-
+#data from baseball reference
 
 View(cubs_batting)
 
