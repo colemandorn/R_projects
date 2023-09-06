@@ -9,6 +9,4 @@ bent <- climate %>%
   filter(STATION == 'USC00310724')
 
 
-sum_prcp <- bent %>% filter(PRCP != is.NA) %>% sum(bent$PRCP)
-bent_sum_prcp <- bent %>% 
-  summarise(total_prcp = sum(PRCP, na.rm = TRUE))
+sum_prcp <- bent %>% filter(!is.na(PRCP)) %>% summarise(total_prcp = sum(PRCP))
