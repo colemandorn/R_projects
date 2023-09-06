@@ -93,17 +93,7 @@ get_zone_data <- function(df, Player, type = "whiff") {
       geom_tile(color = "black") +
       geom_text(aes(label = value), color = "white", size = 4) +
       scale_fill_gradient(low ="blue", high = "red") +
-      theme(axis.text.x=element_blank(),
-            axis.ticks.x=element_blank(),
-            axis.text.y=element_blank(),
-            axis.ticks.y=element_blank(),
-            panel.border = element_blank(),
-            panel.grid.major = element_blank(),
-            panel.grid.minor = element_blank(),
-            legend.key       = element_blank(),
-            panel.background = element_rect(fill = "white"),
-            legend.position = "None",
-            complete = TRUE) +
+      theme_classic()+
       geom_segment(aes(x = -0.708, y = 0.15, xend = 0.708, yend = 0.15), size = 1, color = "black") + 
       geom_segment(aes(x = -0.708, y = 0.3, xend = -0.708, yend = 0.15), size = 1, color = "black") + 
       geom_segment(aes(x = -0.708, y = 0.3, xend = 0, yend = 0.5), size = 1, color = "black") + 
@@ -117,7 +107,7 @@ get_zone_data <- function(df, Player, type = "whiff") {
   
 }
 
-get_zone_data(TM,"Example LHB", type = "whiff")
+get_zone_data(TM,"Example RHB", type = "Average EV")
 
 
 
