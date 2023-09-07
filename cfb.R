@@ -11,7 +11,7 @@ View(wk1)
 fg_wk1 <- wk1 %>%
   filter(play_type %in% c("Field Goal Good", "Field Goal Missed")) %>%
   group_by(kicker = fg_kicker_player_name) %>%
-  summarise(total_EPA = mean(EPA, na.rm = TRUE))
+  summarise(total_EPA = sum(EPA, na.rm = TRUE))
 
 
 
